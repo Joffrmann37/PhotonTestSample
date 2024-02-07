@@ -54,6 +54,20 @@ final class NYCViewModelTests: XCTestCase {
         XCTAssertEqual(finalResult, result(expectedResult: .failure(error)))
     }
     
+    func test_DidGetSchoolDetails() {
+        let vm = NYCViewModelSpy(service: NYCSchoolServiceSpy())
+        var details: NYCSchool.NYCSchoolDetails!
+        let exp = expectation(description: "Wait for task")
+        testWithExpectation(vm: vm, exp: exp) { result in
+            if case .success(let array) = result {
+                details = array[0].getDetails()
+            }
+            exp.fulfill()
+        }
+        XCTAssertEqual(details, NYCSchoolSpy.NYCSchoolDetails(phoneNumber: "212-524-4360", schoolEmail: "admissions@theclintonschool.net", faxNumber: "212-524-4365"))
+    }
+    
+    
     private func result(expectedResult: SchoolResult) -> SchoolResult {
         switch expectedResult {
         case .success(let array):
@@ -84,7 +98,7 @@ final class NYCViewModelTests: XCTestCase {
         }
     }
     
-    private class NYCSchoolSpy: NYCSchool {
+    internal class NYCSchoolSpy: NYCSchool {
         var website: String
                 
         required init(from decoder: Decoder) throws {

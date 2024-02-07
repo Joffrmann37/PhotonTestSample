@@ -39,7 +39,11 @@ class NYCSchool: Codable, Identifiable, Equatable {
         self.faxNumber = try container.decodeIfPresent(String.self, forKey: NYCKeys.faxNumber)
     }
     
-    internal struct NYCSchoolDetails {
+    internal class NYCSchoolDetails: Equatable {
+        static func == (lhs: NYCSchool.NYCSchoolDetails, rhs: NYCSchool.NYCSchoolDetails) -> Bool {
+            return lhs.phoneNumber == rhs.phoneNumber
+        }
+        
         let phoneNumber: String
         let schoolEmail: String
         let faxNumber: String
