@@ -21,6 +21,7 @@
 		B40AF16F2B73E9090058194C /* NYCSchoolService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40AF16E2B73E9090058194C /* NYCSchoolService.swift */; };
 		B40AF1712B73E9370058194C /* NYCViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40AF1702B73E9370058194C /* NYCViewModel.swift */; };
 		B40AF1732B73F80D0058194C /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40AF1722B73F80D0058194C /* DetailView.swift */; };
+		B40AF1752B740ACC0058194C /* NYCViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40AF1742B740ACC0058194C /* NYCViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		B40AF16E2B73E9090058194C /* NYCSchoolService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYCSchoolService.swift; sourceTree = "<group>"; };
 		B40AF1702B73E9370058194C /* NYCViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYCViewModel.swift; sourceTree = "<group>"; };
 		B40AF1722B73F80D0058194C /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		B40AF1742B740ACC0058194C /* NYCViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYCViewModelTests.swift; sourceTree = "<group>"; };
 		C5A457C7AF6FBCE3FF950C91 /* Pods-NYCHighSchools.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NYCHighSchools.release.xcconfig"; path = "Target Support Files/Pods-NYCHighSchools/Pods-NYCHighSchools.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -153,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				B40AF1532B73E0EB0058194C /* NYCHighSchoolsTests.swift */,
+				B40AF1742B740ACC0058194C /* NYCViewModelTests.swift */,
 			);
 			path = NYCHighSchoolsTests;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B40AF1542B73E0EB0058194C /* NYCHighSchoolsTests.swift in Sources */,
+				B40AF1752B740ACC0058194C /* NYCViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

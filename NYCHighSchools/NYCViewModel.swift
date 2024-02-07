@@ -12,7 +12,7 @@ class NYCViewModel: ObservableObject, Equatable {
         lhs.schools == rhs.schools
     }
     
-    let service: Serviceable
+    var service: Serviceable
     @Published var schools = [NYCSchool]()
     var error: SchoolError?
     
@@ -22,7 +22,7 @@ class NYCViewModel: ObservableObject, Equatable {
     }
     
     func fetchSchools() {
-        service.fetchSchools { result in
+        service.fetchSchools(url: URL(string: "https://data.cityofnewyork.us/resource/s3k6-pzi2.json")!) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let array):

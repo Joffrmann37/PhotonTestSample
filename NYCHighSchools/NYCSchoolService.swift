@@ -19,12 +19,12 @@ enum SchoolError: Swift.Error {
 }
 
 protocol Serviceable {
-    func fetchSchools(completionHandler: @escaping (SchoolResult) -> Void)
+    func fetchSchools(url: URL, completionHandler: @escaping (SchoolResult) -> Void)
 }
 
 class NYCSchoolService: Serviceable {
-    func fetchSchools(completionHandler: @escaping (SchoolResult) -> Void) {
-        let task = URLSession(configuration: .default).dataTask(with: URL(string: "https://data.cityofnewyork.us/resource/s3k6-pzi2.json")!) { data, response, error in
+    func fetchSchools(url: URL, completionHandler: @escaping (SchoolResult) -> Void) {
+        let task = URLSession(configuration: .default).dataTask(with: url) { data, response, error in
             guard let data = data else {
                 print("No data")
                 completionHandler(.failure(.noData))
