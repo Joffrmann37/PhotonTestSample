@@ -10,7 +10,7 @@ import XCTest
 
 final class NYCViewModelTests: XCTestCase {
     func test_DidGetSchoolsJSON() {
-        let vm = NYCViewModelSpy(service: NYCSchoolServiceSpy())
+        let vm = NYCViewModelSpy(useCase: FetchNYCSchoolsUseCaseSpy(repository: NYCSchoolRepositorySpy()))
         var finalResult: SchoolResult!
         var schools = [NYCSchool]()
         let exp = expectation(description: "Wait for task")
@@ -25,7 +25,7 @@ final class NYCViewModelTests: XCTestCase {
     }
     
     func test_CouldNotReadData() {
-        let vm = NYCViewModelSpy(service: NYCSchoolServiceSpy(shouldFail: true))
+        let vm = NYCViewModelSpy(useCase: FetchNYCSchoolsUseCaseSpy(repository: NYCSchoolRepositorySpy(shouldFail: true)))
         var finalResult: SchoolResult!
         var error: SchoolError!
         let exp = expectation(description: "Wait for task")
@@ -40,7 +40,7 @@ final class NYCViewModelTests: XCTestCase {
     }
     
     func test_InvalidURL() {
-        let vm = NYCViewModelSpy(service: NYCSchoolServiceSpy(), url: URL(string: "https://data.cityofnewyork.us/resource/s3k6-pzi2.js")!)
+        let vm = NYCViewModelSpy(useCase: FetchNYCSchoolsUseCaseSpy(repository: NYCSchoolRepositorySpy()), url:  URL(string: "https://data.cityofnewyork.us/resource/s3k6-pzi2.js")!)
         var finalResult: SchoolResult!
         var error: SchoolError!
         let exp = expectation(description: "Wait for task")
@@ -55,7 +55,7 @@ final class NYCViewModelTests: XCTestCase {
     }
     
     func test_DidGetSchoolDetails() {
-        let vm = NYCViewModelSpy(service: NYCSchoolServiceSpy())
+        let vm = NYCViewModelSpy(useCase: FetchNYCSchoolsUseCaseSpy(repository: NYCSchoolRepositorySpy()))
         var details: NYCSchool.NYCSchoolDetails!
         let exp = expectation(description: "Wait for task")
         testWithExpectation(vm: vm, exp: exp) { result in
@@ -87,14 +87,20 @@ final class NYCViewModelTests: XCTestCase {
     private class NYCViewModelSpy: NYCViewModel {
         let url: URL
         
-        init(service: Serviceable, url: URL = URL(string: "https://data.cityofnewyork.us/resource/s3k6-pzi2.json")!) {
+        init(useCase: FetchNYCSchoolsUseCaseSpy, url: URL = URL(string: "https://data.cityofnewyork.us/resource/s3k6-pzi2.json")!) {
             self.url = url
-            super.init(service: service)
-            self.service = service
+            super.init(useCase: useCase)
+            self.useCase = useCase
         }
         
         func fetch(completionHandler: @escaping (SchoolResult) -> Void) {
-            service.fetchSchools(url: url, completionHandler: completionHandler)
+            useCase.fetchSchools(url: url, completionHandler: completionHandler)
+        }
+    }
+    
+    private class FetchNYCSchoolsUseCaseSpy: FetchNYCSchoolsUseCase {
+        override init(repository: NYCSchoolRepository) {
+            super.init(repository: repository)
         }
     }
     
@@ -116,14 +122,14 @@ final class NYCViewModelTests: XCTestCase {
         }
     }
     
-    private class NYCSchoolServiceSpy: Serviceable {
+    private class NYCSchoolRepositorySpy: NYCSchoolRepository {
         let shouldFail: Bool
         
         init(shouldFail: Bool = false) {
             self.shouldFail = shouldFail
         }
         
-        func fetchSchools(url: URL, completionHandler: @escaping (NYCHighSchools.SchoolResult) -> Void) {
+        override func fetchSchools(url: URL, completionHandler: @escaping (NYCHighSchools.SchoolResult) -> Void) {
             let task = URLSession(configuration: .default).dataTask(with: url) { [weak self] data, response, error in
                 guard let self = self, let data = data else {
                     print("No data")

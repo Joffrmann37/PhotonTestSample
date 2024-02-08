@@ -18,11 +18,7 @@ enum SchoolError: Swift.Error {
     case connectivity
 }
 
-protocol Serviceable {
-    func fetchSchools(url: URL, completionHandler: @escaping (SchoolResult) -> Void)
-}
-
-class NYCSchoolService: Serviceable {
+class NYCSchoolRepository {
     func fetchSchools(url: URL, completionHandler: @escaping (SchoolResult) -> Void) {
         let task = URLSession(configuration: .default).dataTask(with: url) { data, response, error in
             guard let data = data else {
