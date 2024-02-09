@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 enum SchoolResult: Equatable {
     case success([NYCSchool])
@@ -16,24 +17,36 @@ enum SchoolError: Swift.Error {
     case noData
     case invalidData
     case connectivity
+    case serverError
 }
 
 class NYCSchoolRepository {
-    func fetchSchools(url: URL, completionHandler: @escaping (SchoolResult) -> Void) {
-        let task = URLSession(configuration: .default).dataTask(with: url) { data, response, error in
-            guard let data = data else {
-                print("No data")
-                completionHandler(.failure(.noData))
-                return
-            }
-            do {
-                let schools = try JSONDecoder().decode([NYCSchool].self, from: data)
-                completionHandler(.success(schools))
-            } catch {
-                print(error.localizedDescription)
-                completionHandler(.failure(.invalidData))
-            }
+    var subscriptions = Set<AnyCancellable>()
+    
+    func fetchSchools(url: URL) -> Future<[NYCSchool], SchoolError> {
+        return Future<[NYCSchool], SchoolError> { [unowned self] promise in
+            URLSession(configuration: .default).dataTaskPublisher(for: url)
+                .tryMap { (data: Data, response: URLResponse) in
+                    guard let httpResponse = response as? HTTPURLResponse,
+                          200...299 ~= httpResponse.statusCode
+                    else {
+                        throw SchoolError.serverError
+                    }
+                    return data
+                }
+                .decode(type: [NYCSchool].self,
+                        decoder: JSONDecoder())
+                .receive(on: RunLoop.main)
+                .sink { completion in
+                    if case let .failure(error) = completion {
+                        promise(.failure(.invalidData))
+                    }
+                }
+        receiveValue: {
+            promise(.success($0))
         }
-        task.resume()
+        .store(in: &self.subscriptions)
+            
+        }
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 class FetchNYCSchoolsUseCase {
     let repository: NYCSchoolRepository
@@ -14,7 +15,7 @@ class FetchNYCSchoolsUseCase {
         self.repository = repository
     }
     
-    func fetchSchools(url: URL, completionHandler: @escaping (SchoolResult) -> Void) {
-        repository.fetchSchools(url: url, completionHandler: completionHandler)
+    func fetchSchools(url: URL) -> Future<[NYCSchool], SchoolError>  {
+        return repository.fetchSchools(url: url)
     }
 }

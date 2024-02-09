@@ -7,7 +7,13 @@
 
 import Foundation
 
-class NYCSchool: Codable, Identifiable, Equatable {
+protocol SchoolModelable: AnyObject, Codable {
+    
+}
+
+class NYCSchool: Codable, Identifiable, Equatable, SchoolModelable {
+    typealias Model = NYCSchool
+    
     static func == (lhs: NYCSchool, rhs: NYCSchool) -> Bool {
         return lhs.dbn == rhs.dbn
     }
@@ -37,6 +43,20 @@ class NYCSchool: Codable, Identifiable, Equatable {
         self.phoneNumber = try container.decode(String.self, forKey: NYCKeys.phoneNumber)
         self.schoolEmail = try container.decodeIfPresent(String.self, forKey: NYCKeys.schoolEmail)
         self.faxNumber = try container.decodeIfPresent(String.self, forKey: NYCKeys.faxNumber)
+    }
+    
+    init() {
+        self.dbn = ""
+        self.schoolName = ""
+        self.overviewParagraph = ""
+        self.phoneNumber = ""
+    }
+    
+    convenience init(dbn: String, schoolName: String, overviewParagraph: String) {
+        self.init()
+        self.dbn = dbn
+        self.schoolName = schoolName
+        self.overviewParagraph = overviewParagraph
     }
     
     internal class NYCSchoolDetails: Equatable {

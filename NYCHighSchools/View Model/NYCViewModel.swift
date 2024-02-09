@@ -6,31 +6,28 @@
 //
 
 import Foundation
+import Combine
 
-class NYCViewModel: ObservableObject, Equatable {
-    static func == (lhs: NYCViewModel, rhs: NYCViewModel) -> Bool {
-        lhs.schools == rhs.schools
-    }
-    
+class NYCViewModel: ObservableObject {
     var useCase: FetchNYCSchoolsUseCase
+    private var subscriptions = Set<AnyCancellable>()
+    var url: URL = URL(string: "https://data.cityofnewyork.us/resource/s3k6-pzi2.json")!
     @Published var schools = [NYCSchool]()
-    var error: SchoolError?
+    @Published var error: SchoolError?
     
-    init(useCase: FetchNYCSchoolsUseCase) {
+    init(useCase: FetchNYCSchoolsUseCase, url: URL = URL(string: "https://data.cityofnewyork.us/resource/s3k6-pzi2.json")!) {
         self.useCase = useCase
         fetchSchools()
     }
     
     private func fetchSchools() {
-        useCase.fetchSchools(url: URL(string: "https://data.cityofnewyork.us/resource/s3k6-pzi2.json")!) { result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let array):
-                    self.schools = array
-                case .failure(let schoolError):
-                    self.error = schoolError
-                }
+        useCase.fetchSchools(url: url).sink { [unowned self] completion in
+            if case let .failure(error) = completion {
+                self.error = error
             }
-        }
+        } receiveValue: { [weak self] schoolArr in
+            guard let self = self else { return }
+            self.schools = schoolArr.map{ NYCSchool(dbn: $0.dbn, schoolName: $0.schoolName, overviewParagraph: $0.overviewParagraph) }
+        }.store(in: &subscriptions)
     }
 }
