@@ -18,10 +18,11 @@
 		B40AF15E2B73E0EB0058194C /* NYCHighSchoolsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40AF15D2B73E0EB0058194C /* NYCHighSchoolsUITests.swift */; };
 		B40AF1602B73E0EB0058194C /* NYCHighSchoolsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40AF15F2B73E0EB0058194C /* NYCHighSchoolsUITestsLaunchTests.swift */; };
 		B40AF16D2B73E2050058194C /* NYCSchool.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40AF16C2B73E2050058194C /* NYCSchool.swift */; };
-		B40AF16F2B73E9090058194C /* NYCSchoolService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40AF16E2B73E9090058194C /* NYCSchoolService.swift */; };
+		B40AF16F2B73E9090058194C /* NYCSchoolRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40AF16E2B73E9090058194C /* NYCSchoolRepository.swift */; };
 		B40AF1712B73E9370058194C /* NYCViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40AF1702B73E9370058194C /* NYCViewModel.swift */; };
 		B40AF1732B73F80D0058194C /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40AF1722B73F80D0058194C /* DetailView.swift */; };
 		B40AF1752B740ACC0058194C /* NYCViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40AF1742B740ACC0058194C /* NYCViewModelTests.swift */; };
+		B40AF17D2B743DE90058194C /* FetchNYCSchoolsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40AF17C2B743DE90058194C /* FetchNYCSchoolsUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,10 +62,11 @@
 		B40AF15D2B73E0EB0058194C /* NYCHighSchoolsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYCHighSchoolsUITests.swift; sourceTree = "<group>"; };
 		B40AF15F2B73E0EB0058194C /* NYCHighSchoolsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYCHighSchoolsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B40AF16C2B73E2050058194C /* NYCSchool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYCSchool.swift; sourceTree = "<group>"; };
-		B40AF16E2B73E9090058194C /* NYCSchoolService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYCSchoolService.swift; sourceTree = "<group>"; };
+		B40AF16E2B73E9090058194C /* NYCSchoolRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYCSchoolRepository.swift; sourceTree = "<group>"; };
 		B40AF1702B73E9370058194C /* NYCViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYCViewModel.swift; sourceTree = "<group>"; };
 		B40AF1722B73F80D0058194C /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		B40AF1742B740ACC0058194C /* NYCViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYCViewModelTests.swift; sourceTree = "<group>"; };
+		B40AF17C2B743DE90058194C /* FetchNYCSchoolsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchNYCSchoolsUseCase.swift; sourceTree = "<group>"; };
 		C5A457C7AF6FBCE3FF950C91 /* Pods-NYCHighSchools.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NYCHighSchools.release.xcconfig"; path = "Target Support Files/Pods-NYCHighSchools/Pods-NYCHighSchools.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -132,11 +134,11 @@
 			isa = PBXGroup;
 			children = (
 				B40AF1422B73E0E20058194C /* NYCHighSchoolsApp.swift */,
-				B40AF16C2B73E2050058194C /* NYCSchool.swift */,
-				B40AF16E2B73E9090058194C /* NYCSchoolService.swift */,
-				B40AF1702B73E9370058194C /* NYCViewModel.swift */,
-				B40AF1442B73E0E20058194C /* ContentView.swift */,
-				B40AF1722B73F80D0058194C /* DetailView.swift */,
+				B40AF17E2B743DF30058194C /* Use Case */,
+				B40AF1782B743D410058194C /* Model */,
+				B40AF1772B743D310058194C /* Repository */,
+				B40AF1762B743C100058194C /* View Model */,
+				B40AF1792B743D520058194C /* View */,
 				B40AF1462B73E0EA0058194C /* Assets.xcassets */,
 				B40AF1482B73E0EA0058194C /* Preview Content */,
 			);
@@ -167,6 +169,63 @@
 				B40AF15F2B73E0EB0058194C /* NYCHighSchoolsUITestsLaunchTests.swift */,
 			);
 			path = NYCHighSchoolsUITests;
+			sourceTree = "<group>";
+		};
+		B40AF1762B743C100058194C /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				B40AF1702B73E9370058194C /* NYCViewModel.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		B40AF1772B743D310058194C /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				B40AF16E2B73E9090058194C /* NYCSchoolRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		B40AF1782B743D410058194C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B40AF16C2B73E2050058194C /* NYCSchool.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B40AF1792B743D520058194C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B40AF17A2B743D5D0058194C /* Content */,
+				B40AF17B2B743D670058194C /* Detail */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B40AF17A2B743D5D0058194C /* Content */ = {
+			isa = PBXGroup;
+			children = (
+				B40AF1442B73E0E20058194C /* ContentView.swift */,
+			);
+			path = Content;
+			sourceTree = "<group>";
+		};
+		B40AF17B2B743D670058194C /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				B40AF1722B73F80D0058194C /* DetailView.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		B40AF17E2B743DF30058194C /* Use Case */ = {
+			isa = PBXGroup;
+			children = (
+				B40AF17C2B743DE90058194C /* FetchNYCSchoolsUseCase.swift */,
+			);
+			path = "Use Case";
 			sourceTree = "<group>";
 		};
 		DEE9D69EC9FEEB5592D4991D /* Pods */ = {
@@ -384,7 +443,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B40AF16F2B73E9090058194C /* NYCSchoolService.swift in Sources */,
+				B40AF17D2B743DE90058194C /* FetchNYCSchoolsUseCase.swift in Sources */,
+				B40AF16F2B73E9090058194C /* NYCSchoolRepository.swift in Sources */,
 				B40AF1732B73F80D0058194C /* DetailView.swift in Sources */,
 				B40AF1452B73E0E20058194C /* ContentView.swift in Sources */,
 				B40AF16D2B73E2050058194C /* NYCSchool.swift in Sources */,

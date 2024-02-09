@@ -9,7 +9,7 @@ import SwiftUI
 import Combine
 
 struct ContentView: View {
-    @ObservedObject var vm = NYCViewModel(service: NYCSchoolService())
+    @ObservedObject var vm = NYCViewModel(useCase: FetchNYCSchoolsUseCase(repository: NYCSchoolRepository()))
     
     var body: some View {
         NavigationView {
@@ -20,7 +20,9 @@ struct ContentView: View {
                         NavigationLink(destination: DetailView(school: school.wrappedValue)) {
                             VStack(spacing: 10, content: {
                                 Text(name)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
                                 Text(dbn)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
                             })
                         }
                         .navigationBarTitle("NYC Schools")
