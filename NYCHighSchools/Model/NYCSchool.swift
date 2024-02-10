@@ -7,11 +7,7 @@
 
 import Foundation
 
-protocol SchoolModelable: AnyObject, Codable {
-    
-}
-
-class NYCSchool: Codable, Identifiable, Equatable, SchoolModelable {
+class NYCSchool: Codable, Identifiable, Equatable {
     typealias Model = NYCSchool
     
     static func == (lhs: NYCSchool, rhs: NYCSchool) -> Bool {
