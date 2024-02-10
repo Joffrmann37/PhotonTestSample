@@ -8,18 +8,27 @@
 import Foundation
 import Combine
 
+enum FetchStrategy: Int, Codable {
+    case immediate = 1, onCommand
+}
+
 class NYCViewModel: ObservableObject {
+    var shouldFetchOnInit = true
+    
     var useCase: FetchNYCSchoolsUseCase
     private var subscriptions = Set<AnyCancellable>()
     var url: URL = URL(string: "https://data.cityofnewyork.us/resource/s3k6-pzi2.json")!
     @Published var schools = [NYCSchool]()
     @Published var error: SchoolError?
+    var fetchStrategy: FetchStrategy = .immediate
     
-    init(useCase: FetchNYCSchoolsUseCase, url: URL = URL(string: "https://data.cityofnewyork.us/resource/s3k6-pzi2.json")!) {
+    init(useCase: FetchNYCSchoolsUseCase, url: URL = URL(string: "https://data.cityofnewyork.us/resource/s3k6-pzi2.json")!, fetchStrategy: FetchStrategy = .immediate) {
         self.useCase = useCase
-        fetchSchools()
+        if fetchStrategy == .immediate {
+            fetchSchools()
+        }
     }
-    
+        
     private func fetchSchools() {
         useCase.fetchSchools(url: url).sink { [unowned self] completion in
             if case let .failure(error) = completion {
