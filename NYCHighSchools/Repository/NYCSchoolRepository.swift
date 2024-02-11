@@ -22,31 +22,6 @@ protocol Serviceable {
 
 class NYCSchoolRepository {
     var subscriptions = Set<AnyCancellable>()
-    
-//    func fetchSchools(url: URL) -> Future<[NYCSchool], SchoolError> {
-//        return Future<[NYCSchool], SchoolError> { [unowned self] promise in
-//            URLSession(configuration: .default).dataTaskPublisher(for: url)
-//                .tryMap { (data: Data, response: URLResponse) in
-//                    if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode < 200 || httpResponse.statusCode > 299 {
-//                        throw SchoolError(rawValue: httpResponse.statusCode)!
-//                    }
-//                    return data
-//                }
-//                .decode(type: [NYCSchool].self,
-//                        decoder: JSONDecoder())
-//                .receive(on: RunLoop.main)
-//                .sink { completion in
-//                    if case let .failure(error) = completion, let error = error as? SchoolError {
-//                        promise(.failure(error))
-//                    }
-//                }
-//        receiveValue: {
-//            promise(.success($0))
-//        }
-//        .store(in: &self.subscriptions)
-//            
-//        }
-//    }
 }
 
 extension NYCSchoolRepository: Serviceable {
