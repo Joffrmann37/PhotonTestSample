@@ -7,6 +7,10 @@
 
 import Foundation
 
+struct Root<T: Codable>: Decodable {
+    let items: [T]
+}
+
 class NYCSchool: Codable, Identifiable, Equatable {
     typealias Model = NYCSchool
     

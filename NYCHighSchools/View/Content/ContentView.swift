@@ -30,6 +30,9 @@ struct ContentView: View {
                 }
             .navigationBarTitle("NYC Schools List")
         }
+        .onAppear {
+            vm.fetchSchools()
+        }
     }
 }
 
