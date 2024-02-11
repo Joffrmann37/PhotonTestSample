@@ -9,13 +9,13 @@ import Foundation
 import Combine
 
 class FetchNYCSchoolsUseCase {
-    let repository: NYCSchoolRepository
+    let repository: Serviceable
     
-    init(repository: NYCSchoolRepository) {
+    init(repository: Serviceable) {
         self.repository = repository
     }
     
-    func fetchSchools(url: URL) -> Future<[NYCSchool], SchoolError>  {
-        return repository.fetchSchools(url: url)
+    func fetchSchools<T: Decodable>(url: URL, type: [T].Type = [NYCSchool].self) -> Future<[T], SchoolError> where T: NYCSchool  {
+        return repository.fetch(url: url, forType: type)
     }
 }

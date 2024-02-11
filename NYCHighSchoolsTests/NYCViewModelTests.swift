@@ -11,46 +11,36 @@ import Combine
 
 final class NYCViewModelTests: XCTestCase {
     func test_DidGetSchoolsJSON() {
-        let vm = NYCViewModelSpy(useCase: FetchNYCSchoolsUseCaseSpy(repository: NYCSchoolRepositorySpy()), fetchStrategy: .onCommand)
+        let vm = NYCViewModelSpy(useCase: FetchNYCSchoolsUseCase(repository: NYCSchoolRepositorySpy()))
         let exp = expectation(description: "Wait for task")
         let expectedSchools = testWithExpectation(vm: vm, exp: exp)
         XCTAssertTrue(expectedSchools.count > 0)
     }
     
     func test_CouldNotReadData() {
-        let vm = NYCViewModelSpy(useCase: FetchNYCSchoolsUseCaseSpy(repository: NYCSchoolRepositorySpy(shouldFail: true)), fetchStrategy: .onCommand)
+        let vm = NYCViewModelSpy(useCase: FetchNYCSchoolsUseCase(repository: NYCSchoolRepositorySpy()))
         let exp = expectation(description: "Wait for task")
-        let error = testWithExpectationOfError(vm: vm, exp: exp)
+        let error = testWithExpectationOfError(vm: vm, type: [NYCSchoolInvalidSpy].self, exp: exp)
         XCTAssertEqual(error, vm.error)
     }
     
     func test_InvalidURL() {
-        let vm = NYCViewModelSpy(useCase: FetchNYCSchoolsUseCaseSpy(repository: NYCSchoolRepositorySpy()), url: URL(string: "https://data.cityofnewyork.us/resource/s3k6-pzi2.js")!, fetchStrategy: .onCommand)
+        let vm = NYCViewModelSpy(useCase: FetchNYCSchoolsUseCase(repository: NYCSchoolRepositorySpy()), url: URL(string: "https://data.cityofnewyork.us/resource/s3k6-pzi2.js")!)
         let exp = expectation(description: "Wait for task")
-        let error = testWithExpectationOfError(vm: vm, exp: exp)
+        let error = testWithExpectationOfError(vm: vm, type: [NYCSchoolSpy].self, exp: exp)
         XCTAssertEqual(error, vm.error)
     }
     
     func test_DidGetSchoolDetails() {
-        let vm = NYCViewModelSpy(useCase: FetchNYCSchoolsUseCaseSpy(repository: NYCSchoolRepositorySpy()), fetchStrategy: .onCommand)
+        let vm = NYCViewModelSpy(useCase: FetchNYCSchoolsUseCase(repository: NYCSchoolRepositorySpy()))
         let exp = expectation(description: "Wait for task")
         let schools = testWithExpectation(vm: vm, exp: exp)
         XCTAssertEqual(schools[0].getDetails(), NYCSchoolSpy.NYCSchoolDetails(phoneNumber: "212-524-4360", schoolEmail: "admissions@theclintonschool.net", faxNumber: "212-524-4365"))
     }
     
-    
-    private func result(expectedResult: SchoolResult) -> SchoolResult {
-        switch expectedResult {
-        case .success(let array):
-            return .success(array)
-        case .failure(let schoolError):
-            return .failure(schoolError)
-        }
-    }
-    
     private func testWithExpectation(vm: NYCViewModelSpy, exp: XCTestExpectation, file: StaticString = #file, line: UInt = #line) -> [NYCSchool] {
         var schoolsToCompare = [NYCSchool]()
-        vm.fetch()
+        vm.fetchSchools()
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             _ = vm.$schools.sink { schools in
                 schoolsToCompare = schools
@@ -61,9 +51,9 @@ final class NYCViewModelTests: XCTestCase {
         return schoolsToCompare
     }
     
-    private func testWithExpectationOfError(vm: NYCViewModelSpy, exp: XCTestExpectation, file: StaticString = #file, line: UInt = #line) -> SchoolError {
+    private func testWithExpectationOfError<T>(vm: NYCViewModelSpy, type: [T].Type, exp: XCTestExpectation, file: StaticString = #file, line: UInt = #line) -> SchoolError where T: NYCSchool {
         var finalError: SchoolError!
-        vm.fetch()
+        vm.fetchSchools(type: type)
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             _ = vm.$error.sink { error in
                 guard let error = error else { return }
@@ -78,14 +68,14 @@ final class NYCViewModelTests: XCTestCase {
     private class NYCViewModelSpy: NYCViewModel {
         private var subscriptions = Set<AnyCancellable>()
         
-        override init(useCase: FetchNYCSchoolsUseCase, url: URL = URL(string: "https://data.cityofnewyork.us/resource/s3k6-pzi2.json")!, fetchStrategy: FetchStrategy = .immediate) {
-            super.init(useCase: useCase, url: url, fetchStrategy: fetchStrategy)
+        override init(useCase: FetchNYCSchoolsUseCase, url: URL = URL(string: "https://data.cityofnewyork.us/resource/s3k6-pzi2.json")!) {
+            super.init(useCase: useCase, url: url)
             self.useCase = useCase
             self.url = url
         }
         
-        func fetch() {
-            (useCase as! FetchNYCSchoolsUseCaseSpy).fetchSpySchools(url: url).sink { [unowned self] completion in
+        override func fetchSchools<T>(type: [T].Type = [NYCSchool].self) where T : NYCSchool {
+            return useCase.fetchSchools(url: url, type: type).sink { [unowned self] completion in
                 if case let .failure(error) = completion {
                     self.error = error
                 }
@@ -93,68 +83,51 @@ final class NYCViewModelTests: XCTestCase {
                 guard let self = self else { return }
                 self.schools = schoolArr
             }.store(in: &subscriptions)
-        }        
+        }
     }
     
-    class NYCSchoolSpy: NYCSchool {
-        var container: KeyedDecodingContainer<NYCSchool.NYCKeys>
+    private class NYCSchoolSpy: NYCSchool {
         var website: String = ""
         
         required init(from decoder: Decoder) throws {
-            container = try decoder.container(keyedBy: NYCKeys.self)
+            let container = try decoder.container(keyedBy: NYCKeys.self)
             try super.init(from: decoder)
             self.website = try container.decode(String.self, forKey: NYCKeys.website)
         }
+    }
+    
+    private class NYCSchoolInvalidSpy: NYCSchool {
+        var website: String = ""
         
-        func forceInvalidData() throws {
+        required init(from decoder: Decoder) throws {
+            let container = try decoder.container(keyedBy: NYCKeys.self)
+            try super.init(from: decoder)
             self.website = try container.decode(String.self, forKey: NYCKeys.faxNumber)
         }
     }
-
     
-    private class FetchNYCSchoolsUseCaseSpy: FetchNYCSchoolsUseCase {
-        func fetchSpySchools(url: URL) -> Future<[NYCSchoolSpy], SchoolError> {
-            return (repository as! NYCSchoolRepositorySpy).fetchSpySchools(url: url)
-        }
-    }
-    
-    private class NYCSchoolRepositorySpy: NYCSchoolRepository {
-        let shouldFail: Bool
+    private class NYCSchoolRepositorySpy: Serviceable {
+        var subscriptions = Set<AnyCancellable>()
         
-        init(shouldFail: Bool = false) {
-            self.shouldFail = shouldFail
-        }
-        
-        func fetchSpySchools(url: URL) -> Future<[NYCSchoolSpy], SchoolError> {
-            return Future<[NYCSchoolSpy], SchoolError> { [unowned self] promise in
+        func fetch<T: Decodable>(url: URL, forType type: [T].Type) -> Future<[T], SchoolError> {
+            return Future<[T], SchoolError> { [unowned self] promise in
                 URLSession(configuration: .default).dataTaskPublisher(for: url)
                     .tryMap { (data: Data, response: URLResponse) in
-                        guard let httpResponse = response as? HTTPURLResponse,
-                              200...299 ~= httpResponse.statusCode
-                        else {
-                            throw SchoolError.serverError
+                        if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode < 200 || httpResponse.statusCode > 299 {
+                            throw SchoolError(rawValue: httpResponse.statusCode)!
                         }
                         return data
                     }
-                    .decode(type: [NYCSchoolSpy].self,
+                    .decode(type: type,
                             decoder: JSONDecoder())
                     .receive(on: RunLoop.main)
                     .sink { completion in
                         if case let .failure(error) = completion {
-                            promise(.failure(.invalidData))
+                            promise(.failure(.badRequest))
                         }
                     }
             receiveValue: {
-                promise(.success($0.map({ spy in
-                    if self.shouldFail {
-                        do {
-                            try spy.forceInvalidData()
-                        } catch {
-                            promise(.failure(.invalidData))
-                        }
-                    }
-                    return spy
-                })))
+                promise(.success($0))
             }
             .store(in: &self.subscriptions)
                 

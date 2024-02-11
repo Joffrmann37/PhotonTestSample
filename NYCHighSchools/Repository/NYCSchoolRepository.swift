@@ -8,38 +8,63 @@
 import Foundation
 import Combine
 
-enum SchoolResult: Equatable {
-    case success([NYCSchool])
-    case failure(SchoolError)
+enum SchoolError: Int, Swift.Error {
+    case badRequest = 400
+    case forbidden = 403
+    case notFound = 404
+    case serverError = 500
+    case notAcceptable = 406
 }
 
-enum SchoolError: Swift.Error {
-    case noData
-    case invalidData
-    case connectivity
-    case serverError
+protocol Serviceable {
+    func fetch<T: Decodable>(url: URL, forType type: [T].Type) -> Future<[T], SchoolError>
 }
 
 class NYCSchoolRepository {
     var subscriptions = Set<AnyCancellable>()
     
-    func fetchSchools(url: URL) -> Future<[NYCSchool], SchoolError> {
-        return Future<[NYCSchool], SchoolError> { [unowned self] promise in
+//    func fetchSchools(url: URL) -> Future<[NYCSchool], SchoolError> {
+//        return Future<[NYCSchool], SchoolError> { [unowned self] promise in
+//            URLSession(configuration: .default).dataTaskPublisher(for: url)
+//                .tryMap { (data: Data, response: URLResponse) in
+//                    if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode < 200 || httpResponse.statusCode > 299 {
+//                        throw SchoolError(rawValue: httpResponse.statusCode)!
+//                    }
+//                    return data
+//                }
+//                .decode(type: [NYCSchool].self,
+//                        decoder: JSONDecoder())
+//                .receive(on: RunLoop.main)
+//                .sink { completion in
+//                    if case let .failure(error) = completion, let error = error as? SchoolError {
+//                        promise(.failure(error))
+//                    }
+//                }
+//        receiveValue: {
+//            promise(.success($0))
+//        }
+//        .store(in: &self.subscriptions)
+//            
+//        }
+//    }
+}
+
+extension NYCSchoolRepository: Serviceable {
+    func fetch<T: Decodable>(url: URL, forType type: [T].Type) -> Future<[T], SchoolError> {
+        return Future<[T], SchoolError> { [unowned self] promise in
             URLSession(configuration: .default).dataTaskPublisher(for: url)
                 .tryMap { (data: Data, response: URLResponse) in
-                    guard let httpResponse = response as? HTTPURLResponse,
-                          200...299 ~= httpResponse.statusCode
-                    else {
-                        throw SchoolError.serverError
+                    if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode < 200 || httpResponse.statusCode > 299 {
+                        throw SchoolError(rawValue: httpResponse.statusCode)!
                     }
                     return data
                 }
-                .decode(type: [NYCSchool].self,
+                .decode(type: type,
                         decoder: JSONDecoder())
                 .receive(on: RunLoop.main)
                 .sink { completion in
-                    if case let .failure(error) = completion {
-                        promise(.failure(.invalidData))
+                    if case let .failure(error) = completion, let error = error as? SchoolError {
+                        promise(.failure(error))
                     }
                 }
         receiveValue: {
