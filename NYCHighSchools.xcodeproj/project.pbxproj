@@ -25,7 +25,6 @@
 		B40AF17D2B743DE90058194C /* FetchNYCSchoolsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40AF17C2B743DE90058194C /* FetchNYCSchoolsUseCase.swift */; };
 		B4CED0662B80013700F7DC20 /* CleanArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4CED0642B7FEA3F00F7DC20 /* CleanArchitecture.framework */; };
 		B4CED0672B8001EC00F7DC20 /* CleanArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4CED0642B7FEA3F00F7DC20 /* CleanArchitecture.framework */; };
-		B4CED0682B8001EC00F7DC20 /* CleanArchitecture.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B4CED0642B7FEA3F00F7DC20 /* CleanArchitecture.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,7 +58,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				B4CED0682B8001EC00F7DC20 /* CleanArchitecture.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
