@@ -23,8 +23,9 @@
 		B40AF1732B73F80D0058194C /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40AF1722B73F80D0058194C /* DetailView.swift */; };
 		B40AF1752B740ACC0058194C /* NYCViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40AF1742B740ACC0058194C /* NYCViewModelTests.swift */; };
 		B40AF17D2B743DE90058194C /* FetchNYCSchoolsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40AF17C2B743DE90058194C /* FetchNYCSchoolsUseCase.swift */; };
-		B4CED0652B7FEA5800F7DC20 /* CleanArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4CED0642B7FEA3F00F7DC20 /* CleanArchitecture.framework */; };
 		B4CED0662B80013700F7DC20 /* CleanArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4CED0642B7FEA3F00F7DC20 /* CleanArchitecture.framework */; };
+		B4CED0672B8001EC00F7DC20 /* CleanArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4CED0642B7FEA3F00F7DC20 /* CleanArchitecture.framework */; };
+		B4CED0682B8001EC00F7DC20 /* CleanArchitecture.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B4CED0642B7FEA3F00F7DC20 /* CleanArchitecture.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,20 @@
 			remoteInfo = CleanArchitecture;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B4CED0692B8001EC00F7DC20 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B4CED0682B8001EC00F7DC20 /* CleanArchitecture.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		04895D1D375C5F2614B95C35 /* Pods-NYCHighSchoolsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NYCHighSchoolsTests.debug.xcconfig"; path = "Target Support Files/Pods-NYCHighSchoolsTests/Pods-NYCHighSchoolsTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -85,8 +100,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4CED0652B7FEA5800F7DC20 /* CleanArchitecture.framework in Frameworks */,
 				153A8688D85DAD588F787629 /* Pods_NYCHighSchools.framework in Frameworks */,
+				B4CED0672B8001EC00F7DC20 /* CleanArchitecture.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,6 +288,7 @@
 				B40AF13B2B73E0E20058194C /* Sources */,
 				B40AF13C2B73E0E20058194C /* Frameworks */,
 				B40AF13D2B73E0E20058194C /* Resources */,
+				B4CED0692B8001EC00F7DC20 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
