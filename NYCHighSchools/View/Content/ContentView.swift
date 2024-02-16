@@ -31,6 +31,9 @@ struct ContentView: View {
             .navigationBarTitle("NYC Schools List")
         }
         .onAppear {
+            if $vm.schools.count == 0 {
+                
+            }
             vm.fetchSchools()
         }
     }

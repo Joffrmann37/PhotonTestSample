@@ -7,15 +7,16 @@
 
 import Foundation
 import Combine
+import CleanArchitecture
 
-class FetchNYCSchoolsUseCase {
-    let repository: Serviceable
+class FetchNYCSchoolsUseCase: UseCase {
+    private let repository: Repository
     
-    init(repository: Serviceable) {
+    init(repository: Repository) {
         self.repository = repository
     }
     
-    func fetchSchools<T: Decodable>(url: URL, type: [T].Type = [NYCSchool].self) -> Future<[T], SchoolError> where T: NYCSchool  {
+    func fetch<T>(url: URL, type: [T].Type) -> Future<[T], CleanError> where T : AnyObject, T : Decodable {
         return repository.fetch(url: url, forType: type)
     }
 }

@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import CleanArchitecture
 
 enum SchoolError: Int, Swift.Error {
     case badRequest = 400
@@ -16,17 +17,13 @@ enum SchoolError: Int, Swift.Error {
     case notAcceptable = 406
 }
 
-protocol Serviceable {
-    func fetch<T: Decodable>(url: URL, forType type: [T].Type) -> Future<[T], SchoolError>
-}
-
 class NYCSchoolRepository {
     var subscriptions = Set<AnyCancellable>()
 }
 
-extension NYCSchoolRepository: Serviceable {
-    func fetch<T: Decodable>(url: URL, forType type: [T].Type) -> Future<[T], SchoolError> {
-        return Future<[T], SchoolError> { [unowned self] promise in
+extension NYCSchoolRepository: Repository {
+    func fetch<T>(url: URL, forType type: [T].Type) -> Future<[T], CleanError> where T : Decodable {
+        return Future<[T], CleanError> { [unowned self] promise in
             URLSession(configuration: .default).dataTaskPublisher(for: url)
                 .tryMap { (data: Data, response: URLResponse) in
                     if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode < 200 || httpResponse.statusCode > 299 {
@@ -38,7 +35,7 @@ extension NYCSchoolRepository: Serviceable {
                         decoder: JSONDecoder())
                 .receive(on: RunLoop.main)
                 .sink { completion in
-                    if case let .failure(error) = completion, let error = error as? SchoolError {
+                    if case let .failure(error) = completion, let error = error as? CleanError {
                         promise(.failure(error))
                     }
                 }

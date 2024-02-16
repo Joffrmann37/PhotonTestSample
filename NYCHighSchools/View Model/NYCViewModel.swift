@@ -7,20 +7,21 @@
 
 import Foundation
 import Combine
+import CleanArchitecture
 
 class NYCViewModel: ObservableObject {
-    var useCase: FetchNYCSchoolsUseCase
+    private let useCase: UseCase
     private var subscriptions = Set<AnyCancellable>()
     var url: URL = URL(string: "https://data.cityofnewyork.us/resource/s3k6-pzi2.json")!
     @Published var schools = [NYCSchool]()
-    @Published var error: SchoolError?
+    @Published var error: CleanError?
     
-    init(useCase: FetchNYCSchoolsUseCase, url: URL = URL(string: "https://data.cityofnewyork.us/resource/s3k6-pzi2.json")!) {
+    init(useCase: UseCase, url: URL = URL(string: "https://data.cityofnewyork.us/resource/s3k6-pzi2.json")!) {
         self.useCase = useCase
     }
         
     func fetchSchools<T>(type: [T].Type = [NYCSchool].self) where T: NYCSchool {
-        useCase.fetchSchools(url: url).sink { [unowned self] completion in
+        useCase.fetch(url: url, type: type).sink { [unowned self] completion in
             if case let .failure(error) = completion {
                 self.error = error
             }

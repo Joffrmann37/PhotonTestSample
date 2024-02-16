@@ -23,6 +23,7 @@
 		B40AF1732B73F80D0058194C /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40AF1722B73F80D0058194C /* DetailView.swift */; };
 		B40AF1752B740ACC0058194C /* NYCViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40AF1742B740ACC0058194C /* NYCViewModelTests.swift */; };
 		B40AF17D2B743DE90058194C /* FetchNYCSchoolsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40AF17C2B743DE90058194C /* FetchNYCSchoolsUseCase.swift */; };
+		B4CED0652B7FEA5800F7DC20 /* CleanArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4CED0642B7FEA3F00F7DC20 /* CleanArchitecture.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +40,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = B40AF13E2B73E0E20058194C;
 			remoteInfo = NYCHighSchools;
+		};
+		B4CED0632B7FEA3F00F7DC20 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B4CED05F2B7FEA3F00F7DC20 /* CleanArchitecture.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B4CED0302B7FE88D00F7DC20;
+			remoteInfo = CleanArchitecture;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -67,6 +75,7 @@
 		B40AF1722B73F80D0058194C /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		B40AF1742B740ACC0058194C /* NYCViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYCViewModelTests.swift; sourceTree = "<group>"; };
 		B40AF17C2B743DE90058194C /* FetchNYCSchoolsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchNYCSchoolsUseCase.swift; sourceTree = "<group>"; };
+		B4CED05F2B7FEA3F00F7DC20 /* CleanArchitecture.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CleanArchitecture.xcodeproj; path = ../CleanArchitecture/CleanArchitecture.xcodeproj; sourceTree = "<group>"; };
 		C5A457C7AF6FBCE3FF950C91 /* Pods-NYCHighSchools.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NYCHighSchools.release.xcconfig"; path = "Target Support Files/Pods-NYCHighSchools/Pods-NYCHighSchools.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -75,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4CED0652B7FEA5800F7DC20 /* CleanArchitecture.framework in Frameworks */,
 				153A8688D85DAD588F787629 /* Pods_NYCHighSchools.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -111,6 +121,7 @@
 		B40AF1362B73E0E20058194C = {
 			isa = PBXGroup;
 			children = (
+				B4CED05F2B7FEA3F00F7DC20 /* CleanArchitecture.xcodeproj */,
 				B40AF1412B73E0E20058194C /* NYCHighSchools */,
 				B40AF1522B73E0EB0058194C /* NYCHighSchoolsTests */,
 				B40AF15C2B73E0EB0058194C /* NYCHighSchoolsUITests */,
@@ -228,6 +239,14 @@
 			path = "Use Case";
 			sourceTree = "<group>";
 		};
+		B4CED0602B7FEA3F00F7DC20 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B4CED0642B7FEA3F00F7DC20 /* CleanArchitecture.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		DEE9D69EC9FEEB5592D4991D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -334,6 +353,12 @@
 			mainGroup = B40AF1362B73E0E20058194C;
 			productRefGroup = B40AF1402B73E0E20058194C /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = B4CED0602B7FEA3F00F7DC20 /* Products */;
+					ProjectRef = B4CED05F2B7FEA3F00F7DC20 /* CleanArchitecture.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				B40AF13E2B73E0E20058194C /* NYCHighSchools */,
@@ -342,6 +367,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		B4CED0642B7FEA3F00F7DC20 /* CleanArchitecture.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CleanArchitecture.framework;
+			remoteRef = B4CED0632B7FEA3F00F7DC20 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		B40AF13D2B73E0E20058194C /* Resources */ = {
