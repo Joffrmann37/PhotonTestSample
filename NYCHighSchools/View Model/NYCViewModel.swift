@@ -18,6 +18,7 @@ class NYCViewModel: ObservableObject {
     
     init(useCase: UseCase, url: URL = URL(string: "https://data.cityofnewyork.us/resource/s3k6-pzi2.json")!) {
         self.useCase = useCase
+        self.url = url
     }
         
     func fetchSchools<T>(type: [T].Type = [NYCSchool].self) where T: NYCSchool {

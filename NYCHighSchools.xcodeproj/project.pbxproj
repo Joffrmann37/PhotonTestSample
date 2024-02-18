@@ -25,6 +25,7 @@
 		B40AF17D2B743DE90058194C /* FetchNYCSchoolsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40AF17C2B743DE90058194C /* FetchNYCSchoolsUseCase.swift */; };
 		B4CED06C2B801A1F00F7DC20 /* CleanArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4CED06A2B80194200F7DC20 /* CleanArchitecture.framework */; platformFilter = ios; };
 		B4E968452B801ABF003CA549 /* CleanArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4CED06A2B80194200F7DC20 /* CleanArchitecture.framework */; };
+		B4E9684B2B818A37003CA549 /* CleanArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4CED06A2B80194200F7DC20 /* CleanArchitecture.framework */; platformFilter = ios; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +126,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				672534B7E6D207D01DC1AE7E /* Pods_NYCHighSchools_NYCHighSchoolsUITests.framework in Frameworks */,
+				B4E9684B2B818A37003CA549 /* CleanArchitecture.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
