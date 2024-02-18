@@ -50,13 +50,6 @@
 			remoteGlobalIDString = B4CED0302B7FE88D00F7DC20;
 			remoteInfo = CleanArchitecture;
 		};
-		B4E968492B8186F7003CA549 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B4CED05F2B7FEA3F00F7DC20 /* CleanArchitecture.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = B4CED02F2B7FE88D00F7DC20;
-			remoteInfo = CleanArchitecture;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -302,7 +295,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				B4E9684A2B8186F7003CA549 /* PBXTargetDependency */,
 			);
 			name = NYCHighSchools;
 			productName = NYCHighSchools;
@@ -546,11 +538,6 @@
 			isa = PBXTargetDependency;
 			target = B40AF13E2B73E0E20058194C /* NYCHighSchools */;
 			targetProxy = B40AF15A2B73E0EB0058194C /* PBXContainerItemProxy */;
-		};
-		B4E9684A2B8186F7003CA549 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = CleanArchitecture;
-			targetProxy = B4E968492B8186F7003CA549 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
