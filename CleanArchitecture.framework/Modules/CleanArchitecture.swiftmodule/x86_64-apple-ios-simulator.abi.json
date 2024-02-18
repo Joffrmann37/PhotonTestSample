@@ -1,0 +1,641 @@
+{
+  "ABIRoot": {
+    "kind": "Root",
+    "name": "TopLevel",
+    "printedName": "TopLevel",
+    "children": [
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "CleanArchitecture",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Combine",
+        "printedName": "Combine",
+        "declKind": "Import",
+        "moduleName": "CleanArchitecture"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "UseCase",
+        "printedName": "UseCase",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "fetch",
+            "printedName": "fetch(url:type:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Future",
+                "printedName": "Combine.Future<[τ_1_0], CleanArchitecture.CleanError>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[τ_1_0]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GenericTypeParam",
+                        "printedName": "τ_1_0"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CleanError",
+                    "printedName": "CleanArchitecture.CleanError",
+                    "usr": "s:17CleanArchitecture0A5ErrorO"
+                  }
+                ],
+                "usr": "s:7Combine6FutureC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "URL",
+                "printedName": "Foundation.URL",
+                "usr": "s:10Foundation3URLV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Metatype",
+                "printedName": "[τ_1_0].Type",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[τ_1_0]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GenericTypeParam",
+                        "printedName": "τ_1_0"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:17CleanArchitecture7UseCaseP5fetch3url4type7Combine6FutureCySayqd__GAA0A5ErrorOG10Foundation3URLV_AJmtRld__CSeRd__lF",
+            "mangledName": "$s17CleanArchitecture7UseCaseP5fetch3url4type7Combine6FutureCySayqd__GAA0A5ErrorOG10Foundation3URLV_AJmtRld__CSeRd__lF",
+            "moduleName": "CleanArchitecture",
+            "genericSig": "<τ_0_0, τ_1_0 where τ_0_0 : CleanArchitecture.UseCase, τ_1_0 : AnyObject, τ_1_0 : Swift.Decodable>",
+            "sugared_genericSig": "<Self, T where Self : CleanArchitecture.UseCase, T : AnyObject, T : Swift.Decodable>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "s:17CleanArchitecture7UseCaseP",
+        "mangledName": "$s17CleanArchitecture7UseCaseP",
+        "moduleName": "CleanArchitecture",
+        "declAttributes": [
+          "AccessControl"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "CleanArchitecture",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Combine",
+        "printedName": "Combine",
+        "declKind": "Import",
+        "moduleName": "CleanArchitecture"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "CleanError",
+        "printedName": "CleanError",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "badRequest",
+            "printedName": "badRequest",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(CleanArchitecture.CleanError.Type) -> CleanArchitecture.CleanError",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CleanError",
+                    "printedName": "CleanArchitecture.CleanError",
+                    "usr": "s:17CleanArchitecture0A5ErrorO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "CleanArchitecture.CleanError.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CleanError",
+                        "printedName": "CleanArchitecture.CleanError",
+                        "usr": "s:17CleanArchitecture0A5ErrorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:17CleanArchitecture0A5ErrorO10badRequestyA2CmF",
+            "mangledName": "$s17CleanArchitecture0A5ErrorO10badRequestyA2CmF",
+            "moduleName": "CleanArchitecture"
+          },
+          {
+            "kind": "Var",
+            "name": "forbidden",
+            "printedName": "forbidden",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(CleanArchitecture.CleanError.Type) -> CleanArchitecture.CleanError",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CleanError",
+                    "printedName": "CleanArchitecture.CleanError",
+                    "usr": "s:17CleanArchitecture0A5ErrorO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "CleanArchitecture.CleanError.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CleanError",
+                        "printedName": "CleanArchitecture.CleanError",
+                        "usr": "s:17CleanArchitecture0A5ErrorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:17CleanArchitecture0A5ErrorO9forbiddenyA2CmF",
+            "mangledName": "$s17CleanArchitecture0A5ErrorO9forbiddenyA2CmF",
+            "moduleName": "CleanArchitecture"
+          },
+          {
+            "kind": "Var",
+            "name": "notFound",
+            "printedName": "notFound",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(CleanArchitecture.CleanError.Type) -> CleanArchitecture.CleanError",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CleanError",
+                    "printedName": "CleanArchitecture.CleanError",
+                    "usr": "s:17CleanArchitecture0A5ErrorO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "CleanArchitecture.CleanError.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CleanError",
+                        "printedName": "CleanArchitecture.CleanError",
+                        "usr": "s:17CleanArchitecture0A5ErrorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:17CleanArchitecture0A5ErrorO8notFoundyA2CmF",
+            "mangledName": "$s17CleanArchitecture0A5ErrorO8notFoundyA2CmF",
+            "moduleName": "CleanArchitecture"
+          },
+          {
+            "kind": "Var",
+            "name": "serverError",
+            "printedName": "serverError",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(CleanArchitecture.CleanError.Type) -> CleanArchitecture.CleanError",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CleanError",
+                    "printedName": "CleanArchitecture.CleanError",
+                    "usr": "s:17CleanArchitecture0A5ErrorO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "CleanArchitecture.CleanError.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CleanError",
+                        "printedName": "CleanArchitecture.CleanError",
+                        "usr": "s:17CleanArchitecture0A5ErrorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:17CleanArchitecture0A5ErrorO06serverC0yA2CmF",
+            "mangledName": "$s17CleanArchitecture0A5ErrorO06serverC0yA2CmF",
+            "moduleName": "CleanArchitecture"
+          },
+          {
+            "kind": "Var",
+            "name": "notAcceptable",
+            "printedName": "notAcceptable",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(CleanArchitecture.CleanError.Type) -> CleanArchitecture.CleanError",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CleanError",
+                    "printedName": "CleanArchitecture.CleanError",
+                    "usr": "s:17CleanArchitecture0A5ErrorO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "CleanArchitecture.CleanError.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CleanError",
+                        "printedName": "CleanArchitecture.CleanError",
+                        "usr": "s:17CleanArchitecture0A5ErrorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:17CleanArchitecture0A5ErrorO13notAcceptableyA2CmF",
+            "mangledName": "$s17CleanArchitecture0A5ErrorO13notAcceptableyA2CmF",
+            "moduleName": "CleanArchitecture"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "CleanArchitecture.CleanError?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CleanError",
+                    "printedName": "CleanArchitecture.CleanError",
+                    "usr": "s:17CleanArchitecture0A5ErrorO"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:17CleanArchitecture0A5ErrorO8rawValueACSgSi_tcfc",
+            "mangledName": "$s17CleanArchitecture0A5ErrorO8rawValueACSgSi_tcfc",
+            "moduleName": "CleanArchitecture",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:17CleanArchitecture0A5ErrorO8rawValueSivp",
+            "mangledName": "$s17CleanArchitecture0A5ErrorO8rawValueSivp",
+            "moduleName": "CleanArchitecture",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:17CleanArchitecture0A5ErrorO8rawValueSivg",
+                "mangledName": "$s17CleanArchitecture0A5ErrorO8rawValueSivg",
+                "moduleName": "CleanArchitecture",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:17CleanArchitecture0A5ErrorO",
+        "mangledName": "$s17CleanArchitecture0A5ErrorO",
+        "moduleName": "CleanArchitecture",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "enumRawTypeName": "Int",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Error",
+            "printedName": "Error",
+            "usr": "s:s5ErrorP",
+            "mangledName": "$ss5ErrorP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "Repository",
+        "printedName": "Repository",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "fetch",
+            "printedName": "fetch(url:forType:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Future",
+                "printedName": "Combine.Future<[τ_1_0], CleanArchitecture.CleanError>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[τ_1_0]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GenericTypeParam",
+                        "printedName": "τ_1_0"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CleanError",
+                    "printedName": "CleanArchitecture.CleanError",
+                    "usr": "s:17CleanArchitecture0A5ErrorO"
+                  }
+                ],
+                "usr": "s:7Combine6FutureC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "URL",
+                "printedName": "Foundation.URL",
+                "usr": "s:10Foundation3URLV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Metatype",
+                "printedName": "[τ_1_0].Type",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[τ_1_0]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GenericTypeParam",
+                        "printedName": "τ_1_0"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:17CleanArchitecture10RepositoryP5fetch3url7forType7Combine6FutureCySayqd__GAA0A5ErrorOG10Foundation3URLV_AJmtSeRd__lF",
+            "mangledName": "$s17CleanArchitecture10RepositoryP5fetch3url7forType7Combine6FutureCySayqd__GAA0A5ErrorOG10Foundation3URLV_AJmtSeRd__lF",
+            "moduleName": "CleanArchitecture",
+            "genericSig": "<τ_0_0, τ_1_0 where τ_0_0 : CleanArchitecture.Repository, τ_1_0 : Swift.Decodable>",
+            "sugared_genericSig": "<Self, T where Self : CleanArchitecture.Repository, T : Swift.Decodable>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "s:17CleanArchitecture10RepositoryP",
+        "mangledName": "$s17CleanArchitecture10RepositoryP",
+        "moduleName": "CleanArchitecture",
+        "declAttributes": [
+          "AccessControl"
+        ]
+      }
+    ],
+    "json_format_version": 8
+  },
+  "ConstValues": [
+    {
+      "filePath": "\/Users\/joffreymann\/Documents\/ios-practice\/CleanArchitecture\/CleanArchitecture\/Repository.swift",
+      "kind": "IntegerLiteral",
+      "offset": 194,
+      "length": 3,
+      "value": "400"
+    },
+    {
+      "filePath": "\/Users\/joffreymann\/Documents\/ios-practice\/CleanArchitecture\/CleanArchitecture\/Repository.swift",
+      "kind": "IntegerLiteral",
+      "offset": 219,
+      "length": 3,
+      "value": "403"
+    },
+    {
+      "filePath": "\/Users\/joffreymann\/Documents\/ios-practice\/CleanArchitecture\/CleanArchitecture\/Repository.swift",
+      "kind": "IntegerLiteral",
+      "offset": 243,
+      "length": 3,
+      "value": "404"
+    },
+    {
+      "filePath": "\/Users\/joffreymann\/Documents\/ios-practice\/CleanArchitecture\/CleanArchitecture\/Repository.swift",
+      "kind": "IntegerLiteral",
+      "offset": 270,
+      "length": 3,
+      "value": "500"
+    },
+    {
+      "filePath": "\/Users\/joffreymann\/Documents\/ios-practice\/CleanArchitecture\/CleanArchitecture\/Repository.swift",
+      "kind": "IntegerLiteral",
+      "offset": 299,
+      "length": 3,
+      "value": "406"
+    },
+    {
+      "filePath": "\/Users\/joffreymann\/Documents\/ios-practice\/CleanArchitecture\/CleanArchitecture\/Repository.swift",
+      "kind": "IntegerLiteral",
+      "offset": 194,
+      "length": 3,
+      "value": "400"
+    },
+    {
+      "filePath": "\/Users\/joffreymann\/Documents\/ios-practice\/CleanArchitecture\/CleanArchitecture\/Repository.swift",
+      "kind": "IntegerLiteral",
+      "offset": 219,
+      "length": 3,
+      "value": "403"
+    },
+    {
+      "filePath": "\/Users\/joffreymann\/Documents\/ios-practice\/CleanArchitecture\/CleanArchitecture\/Repository.swift",
+      "kind": "IntegerLiteral",
+      "offset": 243,
+      "length": 3,
+      "value": "404"
+    },
+    {
+      "filePath": "\/Users\/joffreymann\/Documents\/ios-practice\/CleanArchitecture\/CleanArchitecture\/Repository.swift",
+      "kind": "IntegerLiteral",
+      "offset": 270,
+      "length": 3,
+      "value": "500"
+    },
+    {
+      "filePath": "\/Users\/joffreymann\/Documents\/ios-practice\/CleanArchitecture\/CleanArchitecture\/Repository.swift",
+      "kind": "IntegerLiteral",
+      "offset": 299,
+      "length": 3,
+      "value": "406"
+    },
+    {
+      "filePath": "\/Users\/joffreymann\/Documents\/ios-practice\/CleanArchitecture\/CleanArchitecture\/Repository.swift",
+      "kind": "IntegerLiteral",
+      "offset": 194,
+      "length": 3,
+      "value": "400"
+    },
+    {
+      "filePath": "\/Users\/joffreymann\/Documents\/ios-practice\/CleanArchitecture\/CleanArchitecture\/Repository.swift",
+      "kind": "IntegerLiteral",
+      "offset": 219,
+      "length": 3,
+      "value": "403"
+    },
+    {
+      "filePath": "\/Users\/joffreymann\/Documents\/ios-practice\/CleanArchitecture\/CleanArchitecture\/Repository.swift",
+      "kind": "IntegerLiteral",
+      "offset": 243,
+      "length": 3,
+      "value": "404"
+    },
+    {
+      "filePath": "\/Users\/joffreymann\/Documents\/ios-practice\/CleanArchitecture\/CleanArchitecture\/Repository.swift",
+      "kind": "IntegerLiteral",
+      "offset": 270,
+      "length": 3,
+      "value": "500"
+    },
+    {
+      "filePath": "\/Users\/joffreymann\/Documents\/ios-practice\/CleanArchitecture\/CleanArchitecture\/Repository.swift",
+      "kind": "IntegerLiteral",
+      "offset": 299,
+      "length": 3,
+      "value": "406"
+    }
+  ]
+}

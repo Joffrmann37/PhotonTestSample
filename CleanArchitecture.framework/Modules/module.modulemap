@@ -1,0 +1,11 @@
+framework module CleanArchitecture {
+  umbrella header "CleanArchitecture.h"
+  export *
+
+  module * { export * }
+}
+
+module CleanArchitecture.Swift {
+  header "CleanArchitecture-Swift.h"
+  requires objc
+}
