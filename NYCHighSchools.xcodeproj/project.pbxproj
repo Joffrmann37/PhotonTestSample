@@ -25,6 +25,7 @@
 		B40AF17D2B743DE90058194C /* FetchNYCSchoolsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40AF17C2B743DE90058194C /* FetchNYCSchoolsUseCase.swift */; };
 		B4CED06C2B801A1F00F7DC20 /* CleanArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4CED06A2B80194200F7DC20 /* CleanArchitecture.framework */; platformFilter = ios; };
 		B4E968452B801ABF003CA549 /* CleanArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4CED06A2B80194200F7DC20 /* CleanArchitecture.framework */; };
+		B4E968482B818525003CA549 /* CleanArchitecture.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B4CED0642B7FEA3F00F7DC20 /* CleanArchitecture.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,13 +55,14 @@
 /* Begin PBXCopyFilesBuildPhase section */
 		B4CED0692B8001EC00F7DC20 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				B4E968482B818525003CA549 /* CleanArchitecture.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
