@@ -42,9 +42,9 @@
 			remoteGlobalIDString = B40AF13E2B73E0E20058194C;
 			remoteInfo = NYCHighSchools;
 		};
-		B4E968552B81B533003CA549 /* PBXContainerItemProxy */ = {
+		B4E9685C2B81BA94003CA549 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = B4E968512B81B533003CA549 /* CleanArchitecture.xcodeproj */;
+			containerPortal = B4E968582B81BA94003CA549 /* CleanArchitecture.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = B4CED0302B7FE88D00F7DC20;
 			remoteInfo = CleanArchitecture;
@@ -90,7 +90,7 @@
 		B40AF1742B740ACC0058194C /* NYCViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYCViewModelTests.swift; sourceTree = "<group>"; };
 		B40AF17C2B743DE90058194C /* FetchNYCSchoolsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchNYCSchoolsUseCase.swift; sourceTree = "<group>"; };
 		B4E9684E2B81B3BB003CA549 /* CleanArchitecture.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CleanArchitecture.framework; path = "../../../Library/Developer/Xcode/DerivedData/CleanArchitecture-gspczwyjrzlejlayjcllvtwflwvr/Build/Products/Debug-iphonesimulator/CleanArchitecture.framework"; sourceTree = "<group>"; };
-		B4E968512B81B533003CA549 /* CleanArchitecture.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CleanArchitecture.xcodeproj; path = CleanArchitecture/CleanArchitecture.xcodeproj; sourceTree = "<group>"; };
+		B4E968582B81BA94003CA549 /* CleanArchitecture.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CleanArchitecture.xcodeproj; path = CleanArchitecture/CleanArchitecture.xcodeproj; sourceTree = "<group>"; };
 		C5A457C7AF6FBCE3FF950C91 /* Pods-NYCHighSchools.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NYCHighSchools.release.xcconfig"; path = "Target Support Files/Pods-NYCHighSchools/Pods-NYCHighSchools.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -138,7 +138,6 @@
 		B40AF1362B73E0E20058194C = {
 			isa = PBXGroup;
 			children = (
-				B4E968512B81B533003CA549 /* CleanArchitecture.xcodeproj */,
 				B40AF1412B73E0E20058194C /* NYCHighSchools */,
 				B40AF1522B73E0EB0058194C /* NYCHighSchoolsTests */,
 				B40AF15C2B73E0EB0058194C /* NYCHighSchoolsUITests */,
@@ -161,6 +160,7 @@
 		B40AF1412B73E0E20058194C /* NYCHighSchools */ = {
 			isa = PBXGroup;
 			children = (
+				B4E968582B81BA94003CA549 /* CleanArchitecture.xcodeproj */,
 				B40AF1422B73E0E20058194C /* NYCHighSchoolsApp.swift */,
 				B40AF17E2B743DF30058194C /* Use Case */,
 				B40AF1782B743D410058194C /* Model */,
@@ -256,10 +256,10 @@
 			path = "Use Case";
 			sourceTree = "<group>";
 		};
-		B4E968522B81B533003CA549 /* Products */ = {
+		B4E968592B81BA94003CA549 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B4E968562B81B533003CA549 /* CleanArchitecture.framework */,
+				B4E9685D2B81BA94003CA549 /* CleanArchitecture.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -373,8 +373,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = B4E968522B81B533003CA549 /* Products */;
-					ProjectRef = B4E968512B81B533003CA549 /* CleanArchitecture.xcodeproj */;
+					ProductGroup = B4E968592B81BA94003CA549 /* Products */;
+					ProjectRef = B4E968582B81BA94003CA549 /* CleanArchitecture.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -387,11 +387,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		B4E968562B81B533003CA549 /* CleanArchitecture.framework */ = {
+		B4E9685D2B81BA94003CA549 /* CleanArchitecture.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = CleanArchitecture.framework;
-			remoteRef = B4E968552B81B533003CA549 /* PBXContainerItemProxy */;
+			remoteRef = B4E9685C2B81BA94003CA549 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
