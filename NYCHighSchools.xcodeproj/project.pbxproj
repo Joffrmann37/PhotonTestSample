@@ -41,9 +41,9 @@
 			remoteGlobalIDString = B40AF13E2B73E0E20058194C;
 			remoteInfo = NYCHighSchools;
 		};
-		B4E968702B81CAC5003CA549 /* PBXContainerItemProxy */ = {
+		B4E9687E2B82F7D5003CA549 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = B4E9686C2B81CAC5003CA549 /* CleanArchitecture.xcodeproj */;
+			containerPortal = B4E9687A2B82F7D4003CA549 /* CleanArchitecture.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = B4CED0302B7FE88D00F7DC20;
 			remoteInfo = CleanArchitecture;
@@ -88,8 +88,8 @@
 		B40AF1722B73F80D0058194C /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		B40AF1742B740ACC0058194C /* NYCViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYCViewModelTests.swift; sourceTree = "<group>"; };
 		B40AF17C2B743DE90058194C /* FetchNYCSchoolsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchNYCSchoolsUseCase.swift; sourceTree = "<group>"; };
-		B4E9686C2B81CAC5003CA549 /* CleanArchitecture.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CleanArchitecture.xcodeproj; path = ../CleanArchitecture/CleanArchitecture.xcodeproj; sourceTree = "<group>"; };
 		B4E968722B81CB0E003CA549 /* CleanArchitecture.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CleanArchitecture.framework; sourceTree = "<group>"; };
+		B4E9687A2B82F7D4003CA549 /* CleanArchitecture.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = CleanArchitecture.xcodeproj; sourceTree = "<group>"; };
 		C5A457C7AF6FBCE3FF950C91 /* Pods-NYCHighSchools.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NYCHighSchools.release.xcconfig"; path = "Target Support Files/Pods-NYCHighSchools/Pods-NYCHighSchools.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -136,7 +136,7 @@
 		B40AF1362B73E0E20058194C = {
 			isa = PBXGroup;
 			children = (
-				B4E9686C2B81CAC5003CA549 /* CleanArchitecture.xcodeproj */,
+				B4E9687A2B82F7D4003CA549 /* CleanArchitecture.xcodeproj */,
 				B40AF1412B73E0E20058194C /* NYCHighSchools */,
 				B40AF1522B73E0EB0058194C /* NYCHighSchoolsTests */,
 				B40AF15C2B73E0EB0058194C /* NYCHighSchoolsUITests */,
@@ -254,10 +254,10 @@
 			path = "Use Case";
 			sourceTree = "<group>";
 		};
-		B4E9686D2B81CAC5003CA549 /* Products */ = {
+		B4E9687B2B82F7D4003CA549 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B4E968712B81CAC5003CA549 /* CleanArchitecture.framework */,
+				B4E9687F2B82F7D5003CA549 /* CleanArchitecture.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -371,8 +371,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = B4E9686D2B81CAC5003CA549 /* Products */;
-					ProjectRef = B4E9686C2B81CAC5003CA549 /* CleanArchitecture.xcodeproj */;
+					ProductGroup = B4E9687B2B82F7D4003CA549 /* Products */;
+					ProjectRef = B4E9687A2B82F7D4003CA549 /* CleanArchitecture.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -385,11 +385,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		B4E968712B81CAC5003CA549 /* CleanArchitecture.framework */ = {
+		B4E9687F2B82F7D5003CA549 /* CleanArchitecture.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = CleanArchitecture.framework;
-			remoteRef = B4E968702B81CAC5003CA549 /* PBXContainerItemProxy */;
+			remoteRef = B4E9687E2B82F7D5003CA549 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */

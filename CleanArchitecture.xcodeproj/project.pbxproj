@@ -6,19 +6,8 @@
 	objectVersion = 56;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		B4CED0352B7FE88D00F7DC20 /* CleanArchitecture.docc in Sources */ = {isa = PBXBuildFile; fileRef = B4CED0342B7FE88D00F7DC20 /* CleanArchitecture.docc */; };
-		B4CED0362B7FE88D00F7DC20 /* CleanArchitecture.h in Headers */ = {isa = PBXBuildFile; fileRef = B4CED0332B7FE88D00F7DC20 /* CleanArchitecture.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B4CED03E2B7FE8B400F7DC20 /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CED03C2B7FE8B400F7DC20 /* UseCase.swift */; };
-		B4CED03F2B7FE8B400F7DC20 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CED03D2B7FE8B400F7DC20 /* Repository.swift */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXFileReference section */
 		B4CED0302B7FE88D00F7DC20 /* CleanArchitecture.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CleanArchitecture.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B4CED0332B7FE88D00F7DC20 /* CleanArchitecture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CleanArchitecture.h; sourceTree = "<group>"; };
-		B4CED0342B7FE88D00F7DC20 /* CleanArchitecture.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = CleanArchitecture.docc; sourceTree = "<group>"; };
-		B4CED03C2B7FE8B400F7DC20 /* UseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UseCase.swift; sourceTree = "<group>"; };
-		B4CED03D2B7FE8B400F7DC20 /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,7 +24,6 @@
 		B4CED0262B7FE88D00F7DC20 = {
 			isa = PBXGroup;
 			children = (
-				B4CED0322B7FE88D00F7DC20 /* CleanArchitecture */,
 				B4CED0312B7FE88D00F7DC20 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -48,17 +36,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B4CED0322B7FE88D00F7DC20 /* CleanArchitecture */ = {
-			isa = PBXGroup;
-			children = (
-				B4CED0332B7FE88D00F7DC20 /* CleanArchitecture.h */,
-				B4CED03D2B7FE8B400F7DC20 /* Repository.swift */,
-				B4CED03C2B7FE8B400F7DC20 /* UseCase.swift */,
-				B4CED0342B7FE88D00F7DC20 /* CleanArchitecture.docc */,
-			);
-			path = CleanArchitecture;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -66,7 +43,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4CED0362B7FE88D00F7DC20 /* CleanArchitecture.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,9 +114,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4CED0352B7FE88D00F7DC20 /* CleanArchitecture.docc in Sources */,
-				B4CED03E2B7FE8B400F7DC20 /* UseCase.swift in Sources */,
-				B4CED03F2B7FE8B400F7DC20 /* Repository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
