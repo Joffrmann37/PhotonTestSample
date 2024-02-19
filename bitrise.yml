@@ -20,6 +20,7 @@ workflows:
         - project_path: "$BITRISE_PROJECT_PATH"
         - scheme: "$BITRISE_SCHEME"
         - test_repetition_mode: retry_on_failure
+        - sdk: iphoneos
         - cache_level: none
     - xcode-archive@5:
         inputs:
