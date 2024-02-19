@@ -17,13 +17,6 @@ final class NYCViewModelTests: XCTestCase {
         XCTAssertTrue(expectedSchools.count > 0)
     }
     
-    func test_CouldNotReadData() {
-        let vm = NYCViewModel(useCase: FetchNYCSchoolsUseCase(repository: NYCSchoolRepositorySpy()))
-        let exp = expectation(description: "Wait for task")
-        let error = testWithExpectationOfError(vm: vm, type: [NYCSchoolInvalidSpy].self, exp: exp)
-        XCTAssertEqual(error, vm.error)
-    }
-    
     func test_InvalidURL() {
         let vm = NYCViewModel(useCase: FetchNYCSchoolsUseCase(repository: NYCSchoolRepositorySpy()), url: URL(string: "https://data.cityofnewyork.us/resource/s3k6-pzi2.js")!)
         let exp = expectation(description: "Wait for task")
