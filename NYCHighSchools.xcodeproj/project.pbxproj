@@ -23,8 +23,8 @@
 		B40AF1732B73F80D0058194C /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40AF1722B73F80D0058194C /* DetailView.swift */; };
 		B40AF1752B740ACC0058194C /* NYCViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40AF1742B740ACC0058194C /* NYCViewModelTests.swift */; };
 		B40AF17D2B743DE90058194C /* FetchNYCSchoolsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40AF17C2B743DE90058194C /* FetchNYCSchoolsUseCase.swift */; };
-		B4D3388F2B83BD25005A8887 /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D3388E2B83BD25005A8887 /* UseCase.swift */; };
-		B4D338922B83BD49005A8887 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D338912B83BD49005A8887 /* Repository.swift */; };
+		B4D338942B83C843005A8887 /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D3388E2B83BD25005A8887 /* UseCase.swift */; };
+		B4D338952B83C843005A8887 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D338912B83BD49005A8887 /* Repository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -463,15 +463,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4D338942B83C843005A8887 /* UseCase.swift in Sources */,
+				B4D338952B83C843005A8887 /* Repository.swift in Sources */,
 				B40AF17D2B743DE90058194C /* FetchNYCSchoolsUseCase.swift in Sources */,
-				B4D3388F2B83BD25005A8887 /* UseCase.swift in Sources */,
 				B40AF16F2B73E9090058194C /* NYCSchoolRepository.swift in Sources */,
 				B40AF1732B73F80D0058194C /* DetailView.swift in Sources */,
 				B40AF1452B73E0E20058194C /* ContentView.swift in Sources */,
 				B40AF16D2B73E2050058194C /* NYCSchool.swift in Sources */,
 				B40AF1432B73E0E20058194C /* NYCHighSchoolsApp.swift in Sources */,
 				B40AF1712B73E9370058194C /* NYCViewModel.swift in Sources */,
-				B4D338922B83BD49005A8887 /* Repository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
