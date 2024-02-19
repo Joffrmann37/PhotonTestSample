@@ -1,6 +1,0 @@
-framework module Pods_NYCHighSchools {
-  umbrella header "Pods-NYCHighSchools-umbrella.h"
-
-  export *
-  module * { export * }
-}
