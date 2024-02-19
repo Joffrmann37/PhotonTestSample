@@ -7,7 +7,6 @@
 
 import Foundation
 import Combine
-import CleanArchitecture
 
 enum SchoolError: Int, Swift.Error {
     case badRequest = 400
@@ -17,12 +16,16 @@ enum SchoolError: Int, Swift.Error {
     case notAcceptable = 406
 }
 
-class NYCSchoolRepository {
+public class NYCSchoolRepository {
     var subscriptions = Set<AnyCancellable>()
+    
+    func fetchSchools<T>(url: URL, forType type: [T].Type) -> Future<[T], CleanError> where T : NYCSchool {
+        fetch(url: url, forType: type)
+    }
 }
 
 extension NYCSchoolRepository: Repository {
-    func fetch<T>(url: URL, forType type: [T].Type) -> Future<[T], CleanError> where T : Decodable {
+    public func fetch<T>(url: URL, forType type: [T].Type) -> Future<[T], CleanError> where T : Decodable {
         return Future<[T], CleanError> { [unowned self] promise in
             URLSession(configuration: .default).dataTaskPublisher(for: url)
                 .tryMap { (data: Data, response: URLResponse) in

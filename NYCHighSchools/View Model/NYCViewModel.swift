@@ -7,7 +7,6 @@
 
 import Foundation
 import Combine
-import CleanArchitecture
 
 class NYCViewModel: ObservableObject {
     private let useCase: UseCase

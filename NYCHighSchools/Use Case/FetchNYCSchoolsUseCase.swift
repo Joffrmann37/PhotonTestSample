@@ -7,7 +7,6 @@
 
 import Foundation
 import Combine
-import CleanArchitecture
 
 class FetchNYCSchoolsUseCase: UseCase {
     private let repository: Repository

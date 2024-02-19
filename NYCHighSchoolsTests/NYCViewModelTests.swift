@@ -8,7 +8,6 @@
 import XCTest
 @testable import NYCHighSchools
 import Combine
-import CleanArchitecture
 
 final class NYCViewModelTests: XCTestCase {
     func test_DidGetSchoolsJSON() {

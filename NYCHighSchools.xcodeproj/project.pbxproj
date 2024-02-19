@@ -23,8 +23,8 @@
 		B40AF1732B73F80D0058194C /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40AF1722B73F80D0058194C /* DetailView.swift */; };
 		B40AF1752B740ACC0058194C /* NYCViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40AF1742B740ACC0058194C /* NYCViewModelTests.swift */; };
 		B40AF17D2B743DE90058194C /* FetchNYCSchoolsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40AF17C2B743DE90058194C /* FetchNYCSchoolsUseCase.swift */; };
-		B4E968732B81CB0E003CA549 /* CleanArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4E968722B81CB0E003CA549 /* CleanArchitecture.framework */; platformFilter = ios; };
-		B4E968812B83AA54003CA549 /* CleanArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4E968722B81CB0E003CA549 /* CleanArchitecture.framework */; };
+		B4D3388F2B83BD25005A8887 /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D3388E2B83BD25005A8887 /* UseCase.swift */; };
+		B4D338922B83BD49005A8887 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D338912B83BD49005A8887 /* Repository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,7 +82,8 @@
 		B40AF1722B73F80D0058194C /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		B40AF1742B740ACC0058194C /* NYCViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYCViewModelTests.swift; sourceTree = "<group>"; };
 		B40AF17C2B743DE90058194C /* FetchNYCSchoolsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchNYCSchoolsUseCase.swift; sourceTree = "<group>"; };
-		B4E968722B81CB0E003CA549 /* CleanArchitecture.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CleanArchitecture.framework; sourceTree = "<group>"; };
+		B4D3388E2B83BD25005A8887 /* UseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UseCase.swift; path = ../../../CleanArchitecture/CleanArchitecture/UseCase.swift; sourceTree = "<group>"; };
+		B4D338912B83BD49005A8887 /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Repository.swift; path = ../../../CleanArchitecture/CleanArchitecture/Repository.swift; sourceTree = "<group>"; };
 		C5A457C7AF6FBCE3FF950C91 /* Pods-NYCHighSchools.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NYCHighSchools.release.xcconfig"; path = "Target Support Files/Pods-NYCHighSchools/Pods-NYCHighSchools.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,7 +93,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				153A8688D85DAD588F787629 /* Pods_NYCHighSchools.framework in Frameworks */,
-				B4E968812B83AA54003CA549 /* CleanArchitecture.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,7 +101,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				87F2A5A8DD7D2F62D0C27120 /* Pods_NYCHighSchoolsTests.framework in Frameworks */,
-				B4E968732B81CB0E003CA549 /* CleanArchitecture.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,7 +118,6 @@
 		61FD20264946748E4DC9AABE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B4E968722B81CB0E003CA549 /* CleanArchitecture.framework */,
 				6850F52ABE97025F24CEA3A0 /* Pods_NYCHighSchools.framework */,
 				367650B9155F9FC66D5AFA50 /* Pods_NYCHighSchools_NYCHighSchoolsUITests.framework */,
 				3D95BE0FB76BA592944663AE /* Pods_NYCHighSchoolsTests.framework */,
@@ -201,6 +199,7 @@
 		B40AF1772B743D310058194C /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				B4D338912B83BD49005A8887 /* Repository.swift */,
 				B40AF16E2B73E9090058194C /* NYCSchoolRepository.swift */,
 			);
 			path = Repository;
@@ -242,6 +241,7 @@
 		B40AF17E2B743DF30058194C /* Use Case */ = {
 			isa = PBXGroup;
 			children = (
+				B4D3388E2B83BD25005A8887 /* UseCase.swift */,
 				B40AF17C2B743DE90058194C /* FetchNYCSchoolsUseCase.swift */,
 			);
 			path = "Use Case";
@@ -464,12 +464,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				B40AF17D2B743DE90058194C /* FetchNYCSchoolsUseCase.swift in Sources */,
+				B4D3388F2B83BD25005A8887 /* UseCase.swift in Sources */,
 				B40AF16F2B73E9090058194C /* NYCSchoolRepository.swift in Sources */,
 				B40AF1732B73F80D0058194C /* DetailView.swift in Sources */,
 				B40AF1452B73E0E20058194C /* ContentView.swift in Sources */,
 				B40AF16D2B73E2050058194C /* NYCSchool.swift in Sources */,
 				B40AF1432B73E0E20058194C /* NYCHighSchoolsApp.swift in Sources */,
 				B40AF1712B73E9370058194C /* NYCViewModel.swift in Sources */,
+				B4D338922B83BD49005A8887 /* Repository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
