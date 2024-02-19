@@ -1,0 +1,36 @@
+{
+  "configurations" : [
+    {
+      "id" : "651EF20D-6610-4E1B-B6EF-3BBD0C080C15",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:NYCHighSchools.xcodeproj",
+      "identifier" : "B40AF13E2B73E0E20058194C",
+      "name" : "NYCHighSchools"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:NYCHighSchools.xcodeproj",
+        "identifier" : "B40AF14E2B73E0EB0058194C",
+        "name" : "NYCHighSchoolsTests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:NYCHighSchools.xcodeproj",
+        "identifier" : "B40AF1582B73E0EB0058194C",
+        "name" : "NYCHighSchoolsUITests"
+      }
+    }
+  ],
+  "version" : 1
+}
